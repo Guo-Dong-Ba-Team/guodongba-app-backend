@@ -1,0 +1,9 @@
+#忽略.idea目录
+.idea
+
+#忽略所有的jar文件
+*.jar
+
+#忽略out目录
+out
+
