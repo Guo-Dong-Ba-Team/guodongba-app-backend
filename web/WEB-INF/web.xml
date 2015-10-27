@@ -23,5 +23,25 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!-- GymBrief -->
+    <servlet>
+        <servlet-name>GymBriefServlet</servlet-name>
+        <servlet-class>server.GymBriefServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GymBriefServlet</servlet-name>
+        <url-pattern>/gym_info_brief</url-pattern>
+    </servlet-mapping>
+
+     <!-- GymDetail -->
+    <servlet>
+        <servlet-name>GymDetailServlet</servlet-name>
+        <servlet-class>server.GymDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GymDetailServlet</servlet-name>
+        <url-pattern>/gym_info_detail</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
