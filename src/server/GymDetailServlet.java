@@ -107,7 +107,6 @@ public class GymDetailServlet extends HttpServlet
                     out.println(everyGym);
                 }
             }
-            out.println("}");
             out.flush();
 
         } catch (SQLException e)
@@ -115,5 +114,7 @@ public class GymDetailServlet extends HttpServlet
             e.printStackTrace();
 
         }
+
+        out.println("}");
     }
 }

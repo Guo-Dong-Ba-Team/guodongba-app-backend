@@ -42,6 +42,14 @@
         <servlet-name>GymDetailServlet</servlet-name>
         <url-pattern>/gym_info_detail</url-pattern>
     </servlet-mapping>
-
-
+    
+    <!-- Order -->
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>server.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order_info</url-pattern>
+    </servlet-mapping>
 </web-app>

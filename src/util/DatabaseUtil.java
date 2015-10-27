@@ -161,4 +161,16 @@ public class DatabaseUtil
 
         return 0; //如果返回0，表示当前商家还没有人评分
     }
+
+    public static ResultSet getOrder(String phone)
+            throws SQLException
+    {
+        initConnection();
+        Statement statement = connection.createStatement();
+
+        String sentence = "SELECT user, gym_id, time, status, money FROM order_info WHERE user = " + phone + ";";
+        ResultSet resultSet = statement.executeQuery(sentence);
+
+        return resultSet;
+    }
 }

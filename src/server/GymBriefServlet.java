@@ -75,12 +75,13 @@ public class GymBriefServlet extends HttpServlet
                 out.println(everyGym);
             }
 
-            out.println("]");
-            out.println("}");
 
         } catch (SQLException e)
         {
             e.printStackTrace();
         }
+
+        out.println("]");
+        out.println("}");
     }
 }
