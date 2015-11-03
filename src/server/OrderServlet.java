@@ -33,6 +33,7 @@ public class OrderServlet extends HttpServlet
         String user = request.getParameter("user");
         String status = request.getParameter("status");
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.println("{");
         out.println("\"order_info\": [");
@@ -59,6 +60,7 @@ public class OrderServlet extends HttpServlet
                             "\", \"status\": " + status +
                             ", \"money\": " + money +"},";
 
+                    everyOrder = everyOrder.substring(0, everyOrder.length() - 1);
                     out.println(everyOrder);
                 }
             }

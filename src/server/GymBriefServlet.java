@@ -30,6 +30,7 @@ public class GymBriefServlet extends HttpServlet
     {
         String type = request.getParameter("type");
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.println("{");
         out.println("\"gym_brief\": [");
@@ -45,11 +46,11 @@ public class GymBriefServlet extends HttpServlet
 
         try
         {
-            if (type == null)//³¡¹ÝÀàÐÍÊôÐÔ²»´æÔÚ£¬ËµÃ÷ÇëÇóµÄÊÇËùÓÐ³¡¹Ý
+            if (type == null)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½Ú£ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½
             {
                 resultSet = DatabaseUtil.getGymBriefAll();
             }
-            else //typeÊôÐÔ²»Îªnull£¬ËµÃ÷ÇëÇóµÄÊÇÄ³Ò»Àà³¡¹Ý
+            else //typeï¿½ï¿½ï¿½Ô²ï¿½Îªnullï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³Ò»ï¿½à³¡ï¿½ï¿½
             {
                 resultSet = DatabaseUtil.getGymBrief(type);
             }
@@ -65,13 +66,14 @@ public class GymBriefServlet extends HttpServlet
                 discount = String.valueOf(resultSet.getFloat(7));
 
                 String everyGym = "{\"name\": \"" + name +
-                        "\", \"longtitude\": " + longtitude +
+                        "\", \"longitude\": " + longtitude +
                         ", \"latitude\": " + latitude +
                         ", \"main_image\": \"" + man_image +
                         "\", \"single_price\": " + single_price +
                         ", \"vip_price\": " + vip_price +
                         ", \"discount\": " + discount + "},";
 
+                everyGym = everyGym.substring(0, everyGym.length() -1);
                 out.println(everyGym);
             }
 

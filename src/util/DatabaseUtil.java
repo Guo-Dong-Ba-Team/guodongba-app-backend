@@ -127,7 +127,7 @@ public class DatabaseUtil
         Statement statement = connection.createStatement();
 
         String sentence = "SELECT name, longtitude, latitude, main_image, single_price, vip_price, discount, address_city, address_detail, phone, open_time, " +
-                "hardware_info, service_info, star_level FROM gym_info WHERE id = " + gym_id + ";";
+                "hardware_info, service_info FROM gym_info WHERE id = " + gym_id + ";";
         ResultSet resultSet = statement.executeQuery(sentence);
 
         return resultSet;
@@ -140,7 +140,7 @@ public class DatabaseUtil
         initConnection();
         Statement statement = connection.createStatement();
 
-        String sentence = "SELECT path FROM detail_images WHERE gym_id = " + gym_id + ";";
+        String sentence = "SELECT path FROM gym_detail_images WHERE gym_id = " + gym_id + ";";
         ResultSet resultSet = statement.executeQuery(sentence);
 
         return resultSet;

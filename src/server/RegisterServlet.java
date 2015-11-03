@@ -37,7 +37,8 @@ public class RegisterServlet extends HttpServlet
             int result = DatabaseUtil.customerRegister(userName, password, phone);
 
             response.setStatus(response.SC_OK);
-            //3ÖÖ½á¹û£º0£º×¢²á³É¹¦£»1.Õâ¸öÊÖ»úºÅÒÑ¾­±»×¢²á£»2.Õâ¸öêÇ³ÆÒÑ¾­±»×¢²á£»
+            response.setCharacterEncoding("UTF-8");
+            //3ï¿½Ö½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½1.ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½×¢ï¿½á£»2.ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½×¢ï¿½á£»
             PrintWriter out = response.getWriter();
             out.print(result);
         }

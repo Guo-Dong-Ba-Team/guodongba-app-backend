@@ -30,8 +30,8 @@ public class GymDetailServlet extends HttpServlet
     {
         String gym_id = request.getParameter("gym_id");
        // response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json, charset=UTF-8");
-
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.println("{");
         out.println("\"gym_detail\": ");
@@ -56,7 +56,7 @@ public class GymDetailServlet extends HttpServlet
 
         try
         {
-            if (gym_id != null)//ÇëÇó¸ñÊ½ÕýÈ·
+            if (gym_id != null)//ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½È·
             {
                 resultSet = DatabaseUtil.getGymDetail(gym_id);
                 while (resultSet.next())
@@ -66,13 +66,14 @@ public class GymDetailServlet extends HttpServlet
                     latitude = String.valueOf(resultSet.getFloat(3));
                     man_image = resultSet.getString(4);
 
-                    //´ÓÊý¾Ý¿âÖÐÇëÇó³¡¹ÝÏêÇéÍ¼Æ¬
+                    //ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó³¡¹ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
                     String detail_images = "";
                     ResultSet resultSet1 = DatabaseUtil.getGymImages(gym_id);
                     while (resultSet1.next())
                     {
                         detail_images += "\"" + resultSet1.getString(1) + "\",";
                     }
+                    detail_images = detail_images.substring(0,detail_images.length() - 1);
 
                     single_price = String.valueOf(resultSet.getInt(5));
                     vip_price = String.valueOf(resultSet.getInt(6));
@@ -84,14 +85,14 @@ public class GymDetailServlet extends HttpServlet
                     hardware = resultSet.getString(12);
                     service = resultSet.getString(13);
 
-                    //¶ÁÈ¡ÉÌ¼ÒÐÇ¼¶
+                    //ï¿½ï¿½È¡ï¿½Ì¼ï¿½ï¿½Ç¼ï¿½
                     star_level = String.valueOf(DatabaseUtil.getGymStarLevel(gym_id));
 
                     String everyGym = "{\"name\": \"" + name +
-                            "\", \"longtitude\": " + longtitude +
+                            "\", \"longitude\": " + longtitude +
                             ", \"latitude\": " + latitude +
                             ", \"main_image\": \"" + man_image +
-                            "\", \"detail_images\":[ " + detail_images +
+                            "\", \"gym_image_url_array\":[ " + detail_images +
                             "], \"single_price\": " + single_price +
                             ", \"vip_price\": " + vip_price+
                             ", \"discount\": " + discount +

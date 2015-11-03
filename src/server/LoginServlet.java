@@ -35,8 +35,8 @@ public class LoginServlet extends HttpServlet
             int result = DatabaseUtil.customerLogin(phone, password);
 
             response.setStatus(response.SC_OK);
-
-            //·µ»ØÖµ£º0£ºµÇÂ¼³É¹¦£»1£º¸ÃÊÖ»úºÅÎ´×¢²á£»2.ÊÖ»úºÅ»òÃÜÂë²»ÕýÈ·
+            response.setCharacterEncoding("UTF-8");
+            //ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Î´×¢ï¿½á£»2.ï¿½Ö»ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·
             PrintWriter out = response.getWriter();
             out.print(result);
         }
